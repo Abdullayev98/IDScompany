@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ClientsController extends Controller
 {
     public function clients(){
-        $clients = Client::all();
-
-        
- 
-$clients = DB::table('clients')
+        $clients = DB::table('clients')
             ->join('products', 'clients.id', '=', 'products.client_id')
             ->select('clients.name','clients.family','products.title','products.amount')
             ->get();
